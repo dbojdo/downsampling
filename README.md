@@ -17,4 +17,4 @@ Add the **webit/downsampling** into **composer.json**
 ```
 
 ## Algorithms provided
-*   Largest-Triangle-Three-Buckets or LTTB (PHP port of see flot-downsample, see: [https://github.com/sveinn-steinarsson/flot-downsample](https://github.com/sveinn-steinarsson/flot-downsample ""))
+*   Largest-Triangle-Three-Buckets or LTTB (PHP port of flot-downsample, see: [https://github.com/sveinn-steinarsson/flot-downsample](https://github.com/sveinn-steinarsson/flot-downsample ""))

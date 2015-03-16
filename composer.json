@@ -1,0 +1,24 @@
+{
+  "name" : "webit/downsampling",
+  "type" : "library",
+  "description": "Downsampling algorithms",
+  "keywords": ["signal", "downsampling", "sampling", "sample"],
+  "authors": [
+    {
+      "name": "Daniel Bojdo",
+      "email": "daniel.bojdo@web-it.eu"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Webit\\DownSampling\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}

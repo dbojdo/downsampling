@@ -11,13 +11,15 @@ Add the **webit/downsampling** into **composer.json**
 {
     "require": {
         "php":              ">=5.3.2",
-        "webit/downsampling": "dev-master"
+        "webit/downsampling": "~1.0"
     }
 }
 ```
 
 ## Usage
 ```php
+use Webit\DownSampling\DownSampler\LargestTriangleThreeBucketsDownSampler;
+
 $data = array();
 for ($i=0; $i < 500; $i++) {
     $data[] = mt_rand(0, 200);

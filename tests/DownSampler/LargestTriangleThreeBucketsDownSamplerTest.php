@@ -19,18 +19,17 @@ class LargestTriangleThreeBucketsDownSamplerTest extends \PHPUnit_Framework_Test
 {
     /**
      * @test
-     * @param array $data
+     * @param array $input
      * @param int $threshold
-     * @param int $maxExpected
+     * @param array $expected
      * @dataProvider getData
      */
-    public function shouldReturnExpectedElementsNumber(array $data, $threshold, $maxExpected)
+    public function shouldReturnExpectedElementsNumber(array $input, $threshold, array $expected)
     {
         $sampler = new LargestTriangleThreeBucketsDownSampler();
-        $sampled = $sampler->sampleDown($data, $threshold);
+        $sampled = $sampler->sampleDown($input, $threshold);
 
-        $this->assertGreaterThan(0, count($sampled));
-        $this->assertLessThanOrEqual($maxExpected, count($sampled));
+        $this->assertEquals($expected, $sampled);
     }
 
     /**
@@ -39,22 +38,16 @@ class LargestTriangleThreeBucketsDownSamplerTest extends \PHPUnit_Framework_Test
     public function getData()
     {
         return array(
-            array($this->createSignal(500), 100, 100),
-            array($this->createSignal(500), 600, 500)
+            array(
+                require(__DIR__ .'/../Fixtures/input.php'),
+                400,
+                require(__DIR__.'/../Fixtures/sampled_400.php')
+            ),
+            array(
+                array_values(require(__DIR__ .'/../Fixtures/input.php')),
+                400,
+                array_values(require(__DIR__.'/../Fixtures/sampled_400.php'))
+            )
         );
-    }
-
-    /**
-     * @param int $length
-     * @return array
-     */
-    private function createSignal($length = 500)
-    {
-        $signal = array();
-        for ($i = 0; $i < $length; $i++) {
-            $signal[] = mt_rand(-100, 100) / 10;
-        }
-
-        return $signal;
     }
 }

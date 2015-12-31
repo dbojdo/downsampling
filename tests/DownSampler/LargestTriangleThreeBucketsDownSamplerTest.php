@@ -37,16 +37,14 @@ class LargestTriangleThreeBucketsDownSamplerTest extends \PHPUnit_Framework_Test
      */
     public function getData()
     {
+        $input = require(__DIR__ .'/../Fixtures/input.php');
+        $sampled400 = require(__DIR__.'/../Fixtures/sampled_400.php');
+
         return array(
             array(
-                require(__DIR__ .'/../Fixtures/input.php'),
+                $input,
                 400,
-                require(__DIR__.'/../Fixtures/sampled_400.php')
-            ),
-            array(
-                array_values(require(__DIR__ .'/../Fixtures/input.php')),
-                400,
-                array_values(require(__DIR__.'/../Fixtures/sampled_400.php'))
+                $sampled400
             )
         );
     }

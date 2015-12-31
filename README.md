@@ -22,7 +22,7 @@ use Webit\DownSampling\DownSampler\LargestTriangleThreeBucketsDownSampler;
 
 $data = array();
 for ($i=0; $i < 500; $i++) {
-    $data[] = mt_rand(0, 200);
+    $data[] = array($i, mt_rand(0, 200));
 }
 
 $sampler = new LargestTriangleThreeBucketsDownSampler();

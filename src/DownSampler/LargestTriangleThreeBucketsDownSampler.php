@@ -16,9 +16,9 @@ class LargestTriangleThreeBucketsDownSampler implements DownSampler
 {
 
     /**
-     * @param array $data
+     * @param array[] $data (array of [0 => "key", 1 => "value"] arrays)
      * @param int $threshold
-     * @return array
+     * @return array[]
      */
     public function sampleDown(array $data, $threshold)
     {

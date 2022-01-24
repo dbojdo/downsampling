@@ -9,26 +9,22 @@
 namespace Webit\DownSampling\DownSampler;
 
 /**
- * Class LargestTriangleThreeBucketsDownSampler
- * @package Webit\DownSampling\DownSampler
+ * Provides the Largest Triangle Three Buckets algorithm implementation
  */
-class LargestTriangleThreeBucketsDownSampler implements DownSampler
+final class LargestTriangleThreeBucketsDownSampler implements DownSampler
 {
 
     /**
-     * @param array $data
-     * @param int $threshold
-     * @return array
+     * @inheritDoc
      */
-    public function sampleDown(array $data, $threshold)
+    public function sampleDown(array $data, int $threshold): array
     {
-        $threshold = (int) $threshold;
         $dataLength = count($data);
         if ($threshold >= $dataLength || $threshold === 0) {
             return $data; // Nothing to do
         }
 
-        $sampled = array();
+        $sampled = [];
         $sampledIndex = 0;
 
         // Bucket size. Leave room for start and end data points
@@ -36,8 +32,6 @@ class LargestTriangleThreeBucketsDownSampler implements DownSampler
 
         $a = 0;  // Initially a is the first point in the triangle
         $maxAreaPoint = null;
-        $maxArea = null;
-        $area = null;
         $nextA = null;
 
         $sampled[$sampledIndex++] = $data[$a]; // Always add the first point
@@ -68,7 +62,7 @@ class LargestTriangleThreeBucketsDownSampler implements DownSampler
             $pointAX = $data[$a][0] * 1; // enforce Number (value may be Date)
             $pointAY = $data[$a][1] * 1;
 
-            $maxArea = $area = -1;
+            $maxArea = -1;
 
             for (; $rangeOffs < $rangeTo; $rangeOffs++) {
                 // Calculate triangle area over three buckets

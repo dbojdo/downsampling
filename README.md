@@ -1,6 +1,6 @@
 # Web-IT Downsampling Library
 
-Simple interface for Downsampling algorithms
+A simple interface for Downsampling algorithms
 
 ## Installation
 ### via Composer
@@ -10,8 +10,8 @@ Add the **webit/downsampling** into **composer.json**
 ```json
 {
     "require": {
-        "php":              ">=5.3.2",
-        "webit/downsampling": "~1.0"
+        "php":              ">=7.1",
+        "webit/downsampling": "^2.0.0"
     }
 }
 ```
@@ -22,7 +22,7 @@ use Webit\DownSampling\DownSampler\LargestTriangleThreeBucketsDownSampler;
 
 $data = array();
 for ($i=0; $i < 500; $i++) {
-    $data[] = array($i, mt_rand(0, 200));
+    $data[] = [$i, mt_rand(0, 200)];
 }
 
 $sampler = new LargestTriangleThreeBucketsDownSampler();

@@ -7,15 +7,11 @@
  * Copyright (C) DXI Ltd
  */
 
-namespace Webit\DownSampling\Tests\DownSampler;
+namespace Webit\DownSampling\DownSampler;
 
-use Webit\DownSampling\DownSampler\LargestTriangleThreeBucketsDownSampler;
+use PHPUnit\Framework\TestCase;
 
-/**
- * Class LargestTriangleThreeBucketsDownSamplerTest
- * @package Webit\DownSampling\Tests\DownSampler
- */
-class LargestTriangleThreeBucketsDownSamplerTest extends \PHPUnit_Framework_TestCase
+class LargestTriangleThreeBucketsDownSamplerTest extends TestCase
 {
     /**
      * @test
@@ -24,7 +20,7 @@ class LargestTriangleThreeBucketsDownSamplerTest extends \PHPUnit_Framework_Test
      * @param array $expected
      * @dataProvider getData
      */
-    public function shouldReturnExpectedElementsNumber(array $input, $threshold, array $expected)
+    public function shouldReturnExpectedElementsNumber(array $input, int $threshold, array $expected)
     {
         $sampler = new LargestTriangleThreeBucketsDownSampler();
         $sampled = $sampler->sampleDown($input, $threshold);
@@ -35,17 +31,17 @@ class LargestTriangleThreeBucketsDownSamplerTest extends \PHPUnit_Framework_Test
     /**
      * @return array
      */
-    public function getData()
+    public function getData(): array
     {
         $input = require(__DIR__ .'/../Fixtures/input.php');
         $sampled400 = require(__DIR__.'/../Fixtures/sampled_400.php');
 
-        return array(
-            array(
+        return [
+            [
                 $input,
                 400,
                 $sampled400
-            )
-        );
+            ]
+        ];
     }
 }

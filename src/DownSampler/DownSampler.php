@@ -9,8 +9,7 @@
 namespace Webit\DownSampling\DownSampler;
 
 /**
- * Class DownSampler
- * @package Webit\DownSampling\DownSampler
+ * Defines the contract for the downsampling process
  */
 interface DownSampler
 {
@@ -19,5 +18,5 @@ interface DownSampler
      * @param int $threshold
      * @return array
      */
-    public function sampleDown(array $data, $threshold);
+    public function sampleDown(array $data, int $threshold): array;
 }
